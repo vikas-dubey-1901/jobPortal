@@ -9,7 +9,7 @@ import java.util.List;
 public class UsersType {
 
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userTypeId;
 
     private String userTypeName;
@@ -17,14 +17,13 @@ public class UsersType {
     @OneToMany(targetEntity = Users.class, mappedBy = "userTypeId", cascade = CascadeType.ALL)
     private List<Users> users;
 
+    public UsersType() {
+    }
+
     public UsersType(int userTypeId, String userTypeName, List<Users> users) {
         this.userTypeId = userTypeId;
         this.userTypeName = userTypeName;
         this.users = users;
-    }
-
-    public UsersType() {
-
     }
 
     public int getUserTypeId() {

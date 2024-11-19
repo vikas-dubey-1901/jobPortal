@@ -6,13 +6,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "job_seeker_profile")
-public class JobSeekerprofile {
+public class JobSeekerProfile {
 
     @Id
     private int userAccountId;
 
     @OneToOne
-    @JoinColumn(name = "userAccountId")
+    @JoinColumn(name = "user_account_id")
     @MapsId
     private Users userId;
 
@@ -24,16 +24,21 @@ public class JobSeekerprofile {
     private String workAuthorization;
     private String employmentType;
     private String resume;
+
     @Column(nullable = true, length = 64)
     private String profilePhoto;
 
-    @OneToMany(targetEntity = Skills.class, cascade = CascadeType.ALL, mappedBy = "jobSeekerprofile")
+    @OneToMany(targetEntity = Skills.class, cascade = CascadeType.ALL, mappedBy = "jobSeekerProfile")
     private List<Skills> skills;
 
-    public JobSeekerprofile() {
+    public JobSeekerProfile() {
     }
 
-    public JobSeekerprofile(int userAccountId, Users userId, String firstName, String lastName, String city, String state, String country, String workAuthorization, String employemntType, String resume, String profilePhoto, List<Skills> skills) {
+    public JobSeekerProfile(Users userId) {
+        this.userId = userId;
+    }
+
+    public JobSeekerProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state, String country, String workAuthorization, String employmentType, String resume, String profilePhoto, List<Skills> skills) {
         this.userAccountId = userAccountId;
         this.userId = userId;
         this.firstName = firstName;
@@ -42,14 +47,10 @@ public class JobSeekerprofile {
         this.state = state;
         this.country = country;
         this.workAuthorization = workAuthorization;
-        this.employmentType = employemntType;
+        this.employmentType = employmentType;
         this.resume = resume;
         this.profilePhoto = profilePhoto;
         this.skills = skills;
-    }
-
-    public JobSeekerprofile(Users users) {
-        this.userId = users;
     }
 
     public int getUserAccountId() {
@@ -116,12 +117,12 @@ public class JobSeekerprofile {
         this.workAuthorization = workAuthorization;
     }
 
-    public String getEmployemntType() {
+    public String getEmploymentType() {
         return employmentType;
     }
 
-    public void setEmployemntType(String employemntType) {
-        this.employmentType = employemntType;
+    public void setEmploymentType(String employmentType) {
+        this.employmentType = employmentType;
     }
 
     public String getResume() {
@@ -150,7 +151,7 @@ public class JobSeekerprofile {
 
     @Override
     public String toString() {
-        return "JobSeekerprofile{" +
+        return "JobSeekerProfile{" +
                 "userAccountId=" + userAccountId +
                 ", userId=" + userId +
                 ", firstName='" + firstName + '\'' +
@@ -159,7 +160,7 @@ public class JobSeekerprofile {
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", workAuthorization='" + workAuthorization + '\'' +
-                ", employemntType='" + employmentType + '\'' +
+                ", employmentType='" + employmentType + '\'' +
                 ", resume='" + resume + '\'' +
                 ", profilePhoto='" + profilePhoto + '\'' +
                 ", skills=" + skills +

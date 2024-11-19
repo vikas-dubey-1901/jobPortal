@@ -11,21 +11,22 @@ public class Skills {
     private int id;
 
     private String name;
-    private String experiencelevel;
+    private String experienceLevel;
     private String yearsOfExperience;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_seeker_profile")
-    private JobSeekerprofile jobSeekerprofile;
+    private JobSeekerProfile jobSeekerProfile;
 
     public Skills() {
     }
 
-    public Skills(int id, String name, String experiencelevel, String yearsOfExperience, JobSeekerprofile jobSeekerprofile) {
+    public Skills(int id, String name, String experienceLevel, String yearsOfExperience, JobSeekerProfile jobSeekerProfile) {
         this.id = id;
         this.name = name;
-        this.experiencelevel = experiencelevel;
+        this.experienceLevel = experienceLevel;
         this.yearsOfExperience = yearsOfExperience;
-        this.jobSeekerprofile = jobSeekerprofile;
+        this.jobSeekerProfile = jobSeekerProfile;
     }
 
     public int getId() {
@@ -44,12 +45,12 @@ public class Skills {
         this.name = name;
     }
 
-    public String getExperiencelevel() {
-        return experiencelevel;
+    public String getExperienceLevel() {
+        return experienceLevel;
     }
 
-    public void setExperiencelevel(String experiencelevel) {
-        this.experiencelevel = experiencelevel;
+    public void setExperienceLevel(String experienceLevel) {
+        this.experienceLevel = experienceLevel;
     }
 
     public String getYearsOfExperience() {
@@ -60,12 +61,12 @@ public class Skills {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public JobSeekerprofile getJobSeekerprofile() {
-        return jobSeekerprofile;
+    public JobSeekerProfile getJobSeekerProfile() {
+        return jobSeekerProfile;
     }
 
-    public void setJobSeekerprofile(JobSeekerprofile jobSeekerprofile) {
-        this.jobSeekerprofile = jobSeekerprofile;
+    public void setJobSeekerProfile(JobSeekerProfile jobSeekerProfile) {
+        this.jobSeekerProfile = jobSeekerProfile;
     }
 
     @Override
@@ -73,9 +74,9 @@ public class Skills {
         return "Skills{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", experiencelevel='" + experiencelevel + '\'' +
+                ", experienceLevel='" + experienceLevel + '\'' +
                 ", yearsOfExperience='" + yearsOfExperience + '\'' +
-                ", jobSeekerprofile=" + jobSeekerprofile +
+                ", jobSeekerProfile=" + jobSeekerProfile +
                 '}';
     }
 }

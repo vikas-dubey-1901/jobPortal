@@ -10,23 +10,29 @@ public class RecruiterProfile {
     private int userAccountId;
 
     @OneToOne
-    @JoinColumn(name = "userAccountId")
+    @JoinColumn(name = "user_account_id")
     @MapsId
-    private Users users;
+    private Users userId;
 
     private String firstName;
     private String lastName;
     private String city;
+
     private String state;
+
     private String country;
+
     private String company;
 
     @Column(nullable = true, length = 64)
     private String profilePhoto;
 
-    public RecruiterProfile(int userAccountId, Users users, String firstName, String lastName, String city, String state, String country, String company, String profilePhoto) {
+    public RecruiterProfile() {
+    }
+
+    public RecruiterProfile(int userAccountId, Users userId, String firstName, String lastName, String city, String state, String country, String company, String profilePhoto) {
         this.userAccountId = userAccountId;
-        this.users = users;
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
@@ -36,13 +42,8 @@ public class RecruiterProfile {
         this.profilePhoto = profilePhoto;
     }
 
-
-    public RecruiterProfile() {
-
-    }
-
     public RecruiterProfile(Users users) {
-        this.users = users;
+        this.userId = users;
     }
 
     public int getUserAccountId() {
@@ -53,12 +54,12 @@ public class RecruiterProfile {
         this.userAccountId = userAccountId;
     }
 
-    public Users getUsers() {
-        return users;
+    public Users getUserId() {
+        return userId;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUserId(Users userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -117,5 +118,18 @@ public class RecruiterProfile {
         this.profilePhoto = profilePhoto;
     }
 
-
+    @Override
+    public String toString() {
+        return "RecruiterProfile{" +
+                "userAccountId=" + userAccountId +
+                ", userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", company='" + company + '\'' +
+                ", profilePhoto='" + profilePhoto + '\'' +
+                '}';
+    }
 }

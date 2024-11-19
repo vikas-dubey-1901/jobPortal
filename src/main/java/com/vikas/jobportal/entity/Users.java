@@ -26,8 +26,11 @@ public class Users {
     private Date registrationDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userTypeId" , referencedColumnName = "userTypeId")
+    @JoinColumn(name = "userTypeId", referencedColumnName = "userTypeId")
     private UsersType userTypeId;
+
+    public Users() {
+    }
 
     public Users(int userId, String email, String password, boolean isActive, Date registrationDate, UsersType userTypeId) {
         this.userId = userId;
@@ -36,10 +39,6 @@ public class Users {
         this.isActive = isActive;
         this.registrationDate = registrationDate;
         this.userTypeId = userTypeId;
-    }
-
-    public Users() {
-
     }
 
     public int getUserId() {
@@ -58,11 +57,11 @@ public class Users {
         this.email = email;
     }
 
-    public @NotEmpty String getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(@NotEmpty String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
