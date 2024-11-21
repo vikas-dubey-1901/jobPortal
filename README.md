@@ -15,7 +15,7 @@ jobs with a single click.
 
 **Technologies used:**
 -> Spring Boot 3
--> Spring MVC
+&nbsp -> Spring MVC
 -> Thymeleaf
 -> Spring Security
 -> Spring Data JPA
@@ -26,7 +26,7 @@ jobs with a single click.
 
 <img align="center" alt="GIF" src="https://github.com/vikas-dubey-1901/jobPortal/blob/master/readme_util/home_screen.png" width="500"/>
 
-**Registration**
+**Registration Page**
 
 <img align="center" alt="GIF" src="https://github.com/vikas-dubey-1901/jobPortal/blob/master/readme_util/registration.png" width="500"/>
 
