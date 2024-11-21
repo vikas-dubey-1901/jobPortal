@@ -14,8 +14,8 @@ track the hiring process.
 jobs with a single click.
 
 **Technologies used:**
--> Spring Boot 3
-&nbsp -> Spring MVC
+-> Spring Boot 3 </br>
+-> Spring MVC
 -> Thymeleaf
 -> Spring Security
 -> Spring Data JPA
